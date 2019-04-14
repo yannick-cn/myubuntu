@@ -116,12 +116,12 @@ echo -e "${RED}Removing Downloaded Unnecessary Files${NC}"
  #./install.sh &&cd .. &&rm -rf Sierra-gtk-theme && dconf write /org/gnome/shell/extensions/user-theme/name "'Sierra-light-solid-alt'")
 
 #(cd /usr/share/icons &&sudo  git clone https://github.com/zayronxio/Mojave-CT.git;)
-sudo cp -rf  ~/ubuntu_mac/dark_background.jpg /usr/share/backgrounds/background.jpg&&\
+sudo cp -rf  ~/myubuntu/dark_background.jpg /usr/share/backgrounds/background.jpg&&\
 (echo -e "Changing Wallpaper" &&\
 	dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/background.jpg'" && \
 	dconf write /org/gnome/desktop/background/picture-options "'zoom'")
-sudo cp -rf ~/ubuntu_mac/gdmlock.jpg /usr/share/backgrounds/gdmlock.jpg 
-sudo cp -r  ~/ubuntu_mac/block_time.jpg /usr/share/backgrounds/ && echo -e "Changing Lock Screen Wallpaper" && \
+sudo cp -rf ~/myubuntu/gdmlock.jpg /usr/share/backgrounds/gdmlock.jpg 
+sudo cp -r  ~/myubuntu/block_time.jpg /usr/share/backgrounds/ && echo -e "Changing Lock Screen Wallpaper" && \
 dconf write /org/gnome/desktop/screensaver/picture-uri "'file:///usr/share/backgrounds/block_time.jpg'" && \
  dconf write /org/gnome/desktop/screensaver/picture-options "'zoom'"
 
