@@ -16,3 +16,5 @@ sudo gedit /etc/alternatives/gdm3.css
 设置开机动画
 sudo apt-get install plymouth-theme* && sudo update-alternatives --config default.plymouth
 sudo update-initramfs  -u
+
+tar -xvf 1469177233-dandelion.tar.gz && sudo cp -r dandelion /usr/share/plymouth/themes/ && sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/dandelion/dandelion.plymouth 100 && echo -e "/usr/share/plymouth/themes/dandelion/dandelion.plymouth"|sudo update-alternatives --config default.plymouth && sudo update-initramfs -u && reboot

@@ -151,3 +151,12 @@ sudo dpkg -i code_1.32.1-1552006243_amd64.deb && rm -f code_1.32.1-1552006243_am
 (code --install-extension ms-python.python;code --install-extension  austin.code-gnu-global;\
 	code --install-extension ms-vscode.cpptools;code --install-extension MS-CEINTL.vscode-language-pack-zh-hans;\
 	code --install-extension vscjava.vscode-java-pack;code --install-extension  DSnake.java-debug)
+
+#更新双系统时间
+sudo apt install ntpdate && sudo ntpdate time.windows.com &&sudo hwclock --localtime --systohc 
+#安装双系统界面
+(git clone https://gitee.com/guetyj/grub2-theme-breeze.git && cd grub2-theme-breeze &&sudo  chmod +x install.sh && ./install.sh)
+#设置开机动画
+(tar -xvf 1469177233-dandelion.tar.gz && sudo cp -r dandelion /usr/share/plymouth/themes/ && \
+	sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/dandelion/dandelion.plymouth 100 && \
+	 echo -e "/usr/share/plymouth/themes/dandelion/dandelion.plymouth"|sudo update-alternatives --config default.plymouth && sudo update-initramfs -u && reboot)
