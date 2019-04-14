@@ -1,0 +1,18 @@
+sudo gedit /etc/alternatives/gdm3.css
+/*找到默认的这个部分*/
+#lockDialogGroup {
+  background: #2c001e url(resource:///org/gnome/shell/theme/noise-texture.png);
+  background-repeat: repeat; 
+}
+
+/*改为*/
+#lockDialogGroup {
+  background: #2c001e url(file:///usr/share/backgrounds/gdmlock.jpg);         
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; 
+}
+
+设置开机动画
+sudo apt-get install plymouth-theme* && sudo update-alternatives --config default.plymouth
+sudo update-initramfs  -u
