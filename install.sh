@@ -5,7 +5,9 @@
 echo -e "${CYAN}Starting  : ${NC}${YELLOW}Installing required extensions${NC}"
 chmod +x /gnome-ext-install.sh
 ./gnome-ext-install.sh install user-theme@gnome-shell-extensions.gcampax.github.com
-./gnome-ext-install.sh install dash-to-dock@micxgx.gmail.com #blyr@yozoon.dev.gmail.com netspeed@hedayaty.gmail.com
+./gnome-ext-install.sh install dash-to-dock@micxgx.gmail.com 
+# ./gnome-ext-install.sh blyr@yozoon.dev.gmail.com
+# ./gnome-ext-install.sh netspeed@hedayaty.gmail.com
 clear
 echo -e "${GREEN}Finished  : ${NC}${YELLOW}User Theme, Blyr, Dash to Dock, Net Speed Monitor extensions are installed.${NC}"
 
@@ -134,7 +136,7 @@ opencv-python pillow scrapy  jupyter notebook  -i https://pypi.tuna.tsinghua.edu
 #安装eclipse
 wget http://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/2018-12/R/eclipse-java-2018-12-R-linux-gtk-x86_64.tar.gz && \
 sudo tar zxvf eclipse-java-2018-12-R-linux-gtk-x86_64.tar.gz  -C /opt/ &&\
-sudo sh -c 'echo  -e "[Desktop Entry]\nEncoding=UTF-8\nName=Eclipse\nComment=Eclipse\nExec=/opt/eclipse/eclipse\nIcon=/opt/eclipse/icon.xpm\nTerminal=false\nStartupNotify=true\nType=Application\nCategories=Application;Development;" >> /usr/share/applications/eclipse.desktop' && \
+sudo sh -c 'echo "[Desktop Entry]\nEncoding=UTF-8\nName=Eclipse\nComment=Eclipse\nExec=/opt/eclipse/eclipse\nIcon=/opt/eclipse/icon.xpm\nTerminal=false\nStartupNotify=true\nType=Application\nCategories=Application;Development;" >> /usr/share/applications/eclipse.desktop' && \
 rm -f eclipse-java-2018-12-R-linux-gtk-x86_64.tar.gz; 
 
 #安装搜狗
