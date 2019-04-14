@@ -3,7 +3,7 @@
  default-jdk  git gnome-shell-extensions chrome-gnome-shell openssh-server unzip gir1.2-gtkclutter-1.0 -y )
 
 echo -e "${CYAN}Starting  : ${NC}${YELLOW}Installing required extensions${NC}"
-chmox +x /gnome-ext-install.sh
+chmod +x /gnome-ext-install.sh
 ./gnome-ext-install.sh install user-theme@gnome-shell-extensions.gcampax.github.com dash-to-dock@micxgx.gmail.com #blyr@yozoon.dev.gmail.com netspeed@hedayaty.gmail.com
 clear
 echo -e "${GREEN}Finished  : ${NC}${YELLOW}User Theme, Blyr, Dash to Dock, Net Speed Monitor extensions are installed.${NC}"
