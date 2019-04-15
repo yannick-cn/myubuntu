@@ -3,7 +3,7 @@
  default-jdk  git gnome-shell-extensions chrome-gnome-shell openssh-server unzip gir1.2-gtkclutter-1.0 -y )
 
 echo -e "${CYAN}Starting  : ${NC}${YELLOW}Installing required extensions${NC}"
-chmod +x /gnome-ext-install.sh
+chmod +x ./gnome-ext-install.sh
 ./gnome-ext-install.sh install user-theme@gnome-shell-extensions.gcampax.github.com
 ./gnome-ext-install.sh install dash-to-dock@micxgx.gmail.com 
 # ./gnome-ext-install.sh blyr@yozoon.dev.gmail.com
@@ -151,11 +151,30 @@ sudo dpkg -i code_1.32.1-1552006243_amd64.deb && rm -f code_1.32.1-1552006243_am
 (code --install-extension ms-python.python;code --install-extension  austin.code-gnu-global;\
 	code --install-extension ms-vscode.cpptools;code --install-extension MS-CEINTL.vscode-language-pack-zh-hans;\
 	code --install-extension vscjava.vscode-java-pack;code --install-extension  DSnake.java-debug)
-
+#安装office
+(wget http://mirrors.ustc.edu.cn/tdf/libreoffice/stable/6.2.2/deb/x86_64/LibreOffice_6.2.2_Linux_x86-64_deb.tar.gz && \
+	tar zxvf LibreOffice_6.2.2_Linux_x86-64_deb.tar.gz && \
+	cd  LibreOffice_6.2.2.2_Linux_x86-64_deb/DEBS && sudo dpkg -i *.deb &&\
+	wget http://mirrors.ustc.edu.cn/tdf/libreoffice/stable/6.2.2/deb/x86_64/LibreOffice_6.2.2_Linux_x86-64_deb_langpack_zh-CN.tar.gz && \
+	tar zxvf LibreOffice_6.2.2_Linux_x86-64_deb_langpack_zh-CN.tar.gz && cd LibreOffice_6.2.2.2_Linux_x86-64_deb_langpack_zh-CN/DEBS && sudo dpkg -i *.deb &&\
+	wget http://mirrors.ustc.edu.cn/tdf/libreoffice/stable/6.2.2/deb/x86_64/LibreOffice_6.2.2_Linux_x86-64_deb_sdk.tar.gz &&
+	tar zxvf LibreOffice_6.2.2_Linux_x86-64_deb_sdk.tar.gz && cd LibreOffice_6.2.2.2_Linux_x86-64_deb_sdk/DEBS && sudo dpkg -i *.deb
+	)
 #更新双系统时间
 sudo apt install ntpdate && sudo ntpdate time.windows.com &&sudo hwclock --localtime --systohc 
 #安装双系统界面
-(git clone https://gitee.com/guetyj/grub2-theme-breeze.git && cd grub2-theme-breeze &&sudo  chmod +x install.sh && ./install.sh)
+#(git clone https://gitee.com/guetyj/grub2-theme-breeze.git && cd grub2-theme-breeze &&sudo  chmod +x install.sh && ./install.sh)
+#安装QQ等软件
+(git clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git && \
+	cd deepin-wine-for-ubuntu && ./install.sh && \
+	wget https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.office/deepin.com.qq.office_2.0.0deepin4_i386.deb &&\
+	sudo dpkg -i deepin.com.qq.office_2.0.0deepin4_i386.deb && \
+	wget https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/deepin.com.wechat_2.6.2.31deepin0_i386.deb &&\
+	dpkg -i deepin.com.wechat/deepin.com.wechat_2.6.2.31deepin0_i386.deb && \
+	wget https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.baidu.pan/deepin.com.baidu.pan_5.7.3deepin0_i386.deb &&\
+	dpkg -i deepin.com.baidu.pan_5.7.3deepin0_i386.deb
+	)
+
 #设置开机动画
 (tar -xvf 1469177233-dandelion.tar.gz && sudo cp -r dandelion /usr/share/plymouth/themes/ && \
 	sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/dandelion/dandelion.plymouth 100 && \
