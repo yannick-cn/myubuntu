@@ -3,12 +3,13 @@
  default-jdk  git gnome-shell-extensions chrome-gnome-shell openssh-server unzip gir1.2-gtkclutter-1.0 -y )
 
 echo -e "${CYAN}Starting  : ${NC}${YELLOW}Installing required extensions${NC}"
+[ ! -d ~/.local/share/gnome-shell/extensions ] && mkdir -p ~/.local/share/gnome-shell/extensions
 chmod +x ./gnome-ext-install.sh
 ./gnome-ext-install.sh install user-theme@gnome-shell-extensions.gcampax.github.com
 ./gnome-ext-install.sh install dash-to-dock@micxgx.gmail.com 
 # ./gnome-ext-install.sh blyr@yozoon.dev.gmail.com
 # ./gnome-ext-install.sh netspeed@hedayaty.gmail.com
-clear
+
 echo -e "${GREEN}Finished  : ${NC}${YELLOW}User Theme, Blyr, Dash to Dock, Net Speed Monitor extensions are installed.${NC}"
 
 mkdir -p CustomizedPack
@@ -17,7 +18,7 @@ cd CustomizedPack
 [ ! -d ~/.themes ] && mkdir -p ~/.themes
 [ ! -d ~/.icons ] && mkdir -p ~/.icons
 [ ! -d ~/.local/share/fonts ] && mkdir -p ~/.local/share/fonts
-[ ! -d ~/.local/share/gnome-shell/extensions ] && mkdir -p ~/.local/share/gnome-shell/extensions
+
 
 echo -e "${GREEN}Copying Cursor Files${NC}"
 cp -r Cursor/* ~/.icons/
@@ -111,11 +112,6 @@ echo -e "${RED}Removing Downloaded Unnecessary Files${NC}"
 
 
 (git clone https://github.com/yannick-cn/mycentos.git && cd mycentos && cp -rf icons/* ~/.icons/ && cp -rf themes/* ~/.themes/)
-#安装自选主题
-#(git clone https://github.com/vinceliuice/Sierra-gtk-theme.git && cd Sierra-gtk-theme && \
- #./install.sh &&cd .. &&rm -rf Sierra-gtk-theme && dconf write /org/gnome/shell/extensions/user-theme/name "'Sierra-light-solid-alt'")
-
-#(cd /usr/share/icons &&sudo  git clone https://github.com/zayronxio/Mojave-CT.git;)
 sudo cp -rf  ~/myubuntu/dark_background.jpg /usr/share/backgrounds/background.jpg&&\
 (echo -e "Changing Wallpaper" &&\
 	dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/background.jpg'" && \
@@ -133,33 +129,12 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &
 sudo pip install --upgrade pip && sudo pip2 install  scipy  numpy Pandas xlrd xlwt scikit-learn requests lxml pymysql PyOpenGL opencv-python pillow  -i https://pypi.tuna.tsinghua.edu.cn/simple 
 sudo pip3 install --upgrade pip && sudo pip3 install  scipy matplotlib numpy Pandas xlrd xlwt scikit-learn requests lxml pymysql pylint PyOpenGL\
 opencv-python pillow scrapy  jupyter notebook  -i https://pypi.tuna.tsinghua.edu.cn/simple
-#安装eclipse
-wget http://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/2018-12/R/eclipse-java-2018-12-R-linux-gtk-x86_64.tar.gz && \
-sudo tar zxvf eclipse-java-2018-12-R-linux-gtk-x86_64.tar.gz  -C /opt/ &&\
-sudo sh -c 'echo "[Desktop Entry]\nEncoding=UTF-8\nName=Eclipse\nComment=Eclipse\nExec=/opt/eclipse/eclipse\nIcon=/opt/eclipse/icon.xpm\nTerminal=false\nStartupNotify=true\nType=Application\nCategories=Application;Development;" >> /usr/share/applications/eclipse.desktop' && \
-rm -f eclipse-java-2018-12-R-linux-gtk-x86_64.tar.gz; 
-
 #安装搜狗
 curl "http://cdn2.ime.sogou.com/dl/index/1524572264/sogoupinyin_2.2.0.0108_amd64.deb?st=cmPqDfoOMKWbaTERUm9Nmg&e=1552393910&fn=sogoupinyin_2.2.0.0108_amd64.deb" -o sougou.deb
 
 #安装网易云音乐
 wget http://d1.music.126.net/dmusic/netease-cloud-music_1.1.0_amd64_ubuntu.deb;
 
-#安装
-wget https://az764295.vo.msecnd.net/stable/05f146c7a8f7f78e80261aa3b2a2e642586f9eb3/code_1.32.1-1552006243_amd64.deb &&\
-sudo dpkg -i code_1.32.1-1552006243_amd64.deb && rm -f code_1.32.1-1552006243_amd64.deb &&\
-(code --install-extension ms-python.python;code --install-extension  austin.code-gnu-global;\
-	code --install-extension ms-vscode.cpptools;code --install-extension MS-CEINTL.vscode-language-pack-zh-hans;\
-	code --install-extension vscjava.vscode-java-pack;code --install-extension  DSnake.java-debug)
-#安装office
-(wget http://mirrors.ustc.edu.cn/tdf/libreoffice/stable/6.2.2/deb/x86_64/LibreOffice_6.2.2_Linux_x86-64_deb.tar.gz && \
-	tar zxvf LibreOffice_6.2.2_Linux_x86-64_deb.tar.gz && \
-	cd  LibreOffice_6.2.2.2_Linux_x86-64_deb/DEBS && sudo dpkg -i *.deb &&\
-	wget http://mirrors.ustc.edu.cn/tdf/libreoffice/stable/6.2.2/deb/x86_64/LibreOffice_6.2.2_Linux_x86-64_deb_langpack_zh-CN.tar.gz && \
-	tar zxvf LibreOffice_6.2.2_Linux_x86-64_deb_langpack_zh-CN.tar.gz && cd LibreOffice_6.2.2.2_Linux_x86-64_deb_langpack_zh-CN/DEBS && sudo dpkg -i *.deb &&\
-	wget http://mirrors.ustc.edu.cn/tdf/libreoffice/stable/6.2.2/deb/x86_64/LibreOffice_6.2.2_Linux_x86-64_deb_sdk.tar.gz &&
-	tar zxvf LibreOffice_6.2.2_Linux_x86-64_deb_sdk.tar.gz && cd LibreOffice_6.2.2.2_Linux_x86-64_deb_sdk/DEBS && sudo dpkg -i *.deb
-	)
 #更新双系统时间
 sudo apt install ntpdate && sudo ntpdate time.windows.com &&sudo hwclock --localtime --systohc 
 #安装双系统界面
@@ -170,9 +145,9 @@ sudo apt install ntpdate && sudo ntpdate time.windows.com &&sudo hwclock --local
 	wget https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.office/deepin.com.qq.office_2.0.0deepin4_i386.deb &&\
 	sudo dpkg -i deepin.com.qq.office_2.0.0deepin4_i386.deb && \
 	wget https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/deepin.com.wechat_2.6.2.31deepin0_i386.deb &&\
-	dpkg -i deepin.com.wechat/deepin.com.wechat_2.6.2.31deepin0_i386.deb && \
+	sudo dpkg -i deepin.com.wechat_2.6.2.31deepin0_i386.deb && \
 	wget https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.baidu.pan/deepin.com.baidu.pan_5.7.3deepin0_i386.deb &&\
-	dpkg -i deepin.com.baidu.pan_5.7.3deepin0_i386.deb
+	sudo dpkg -i deepin.com.baidu.pan_5.7.3deepin0_i386.deb
 	)
 
 #设置开机动画
