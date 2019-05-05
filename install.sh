@@ -1,6 +1,6 @@
 (sudo apt-get update -y && sudo apt-get install xterm aptitude git openssh-client \
  npm flatpak    python python-pip python3-pip vim curl  gnome-tweak-tool  default-jre \
- default-jdk  git gnome-shell-extensions chrome-gnome-shell openssh-server unzip gir1.2-gtkclutter-1.0 -y )
+ default-jdk  git gnome-shell-extensions chrome-gnome-shell openssh-server unzip gir1.2-gtkclutter-1.0 fcitx fcitx-googlepinyin im-config  -y )
 
 echo -e "${CYAN}Starting  : ${NC}${YELLOW}Installing required extensions${NC}"
 [ ! -d ~/.local/share/gnome-shell/extensions ] && mkdir -p ~/.local/share/gnome-shell/extensions
